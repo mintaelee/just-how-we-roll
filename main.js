@@ -93,11 +93,15 @@ function rollDoubleD6(event){
     // Grab HTML tag for mean and median
     const doubleD6RollMean = document.querySelector('#double-d6-rolls-mean');
     const doubleD6RollMedian = document.querySelector('#double-d6-rolls-median');
+    const doubleD6RollMode = document.querySelector('#double-d6-rolls-mode');
+
 
 
     // Update the new mean & median
     doubleD6RollMean.innerText = mean(doubleSixes);
     doubleD6RollMedian.innerText = median(doubleSixes);
+    doubleD6RollMode.innerText = mode(doubleSixes);
+
     
 }
 
@@ -111,11 +115,15 @@ function rollD12(event){
     // Grab HTML tag for mean and median
     const d12RollMean = document.querySelector('#d12-rolls-mean');
     const d12RollMedian = document.querySelector('#d12-rolls-median');
+    const d12RollMode = document.querySelector('#d12-rolls-mode');
+
 
 
     // Update the new mean & median
     d12RollMean.innerText = mean(twelves);
     d12RollMedian.innerText = median(twelves);
+    d12RollMode.innerText = mode(twelves);
+
 }
 
 function rollD20(event){
@@ -128,11 +136,15 @@ function rollD20(event){
     // Grab HTML tag for mean and median
     const d20RollMean = document.querySelector('#d20-rolls-mean');
     const d20RollMedian = document.querySelector('#d20-rolls-median');
+    const d20RollMode = document.querySelector('#d20-rolls-mode');
+
 
 
     // Update the new mean & median
     d20RollMean.innerText = mean(twenties);
     d20RollMedian.innerText = median(twenties);
+    d20RollMode.innerText = mode(twenties);
+
 }
 
 function resetAllRolls(event){
@@ -174,10 +186,10 @@ function median(diceArray){
 }
 
 function mode(diceArray){
-    let counter = 0;
     let highestCounter = 0;
     let indexOfMode = 0;
     for (let i = 0; i < diceArray.length - 1; i++){
+        let counter = 0;
         for (let j = i + 1; j < diceArray.length; j++) {
             if (diceArray[i] === diceArray[j]){
                 counter++;
