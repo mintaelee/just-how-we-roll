@@ -15,21 +15,21 @@ function init() {
     setStartingImages();
 
     const d6Roll = document.querySelector('#d6-roll');
-    d6Roll.addEventListener('click', rollD6);
+    eventClicked(d6Roll, rollD6);
 
     const doubleD6Roll1 = document.querySelector('#double-d6-roll-1');
-    doubleD6Roll1.addEventListener('click', rollDoubleD6);
+    eventClicked(doubleD6Roll1, rollDoubleD6);
     const doubleD6Roll2 = document.querySelector('#double-d6-roll-2');
-    doubleD6Roll2.addEventListener('click', rollDoubleD6);
+    eventClicked(doubleD6Roll2, rollDoubleD6);
 
     const d12Roll = document.querySelector('#d12-roll');
-    d12Roll.addEventListener('click', rollD12);
+    eventClicked(d12Roll, rollD12);
     
     const d20Roll = document.querySelector('#d20-roll');
-    d20Roll.addEventListener('click', rollD20);
+    eventClicked(d20Roll, rollD20);
 
     const resetButton = document.querySelector('#reset-button')
-    resetButton.addEventListener('click', resetAllRolls);
+    eventClicked(resetButton, resetAllRolls);
 
 }
 
@@ -210,7 +210,7 @@ function mode(diceArray){
 
 // Function to get random integer between 1 and chosen max.
 function getRandomInt(max){
-    return Math.floor(Math.random() * Math.floor(max))+1;
+    return Math.ceil(Math.random() * Math.ceil(max));
 }
 
 function diceRoll(numSides, diceArray) {
@@ -235,3 +235,6 @@ function diceRoll(numSides, diceArray) {
     return rolledD6Image;
 }
 
+function eventClicked(selector, outputFunction){
+    return selector.addEventListener('click', outputFunction);
+}
